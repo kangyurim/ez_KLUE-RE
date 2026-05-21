@@ -2,7 +2,6 @@
 
 Hugging Face `load_dataset("klue", "re")` 기반으로 KLUE-RE 데이터셋의 subject/object entity 사이 관계를 분류하는 프로젝트입니다.
 
-본 프로젝트의 목적은 단일 모델 학습이 아니라, Relation Extraction 성능에 영향을 주는 요소를 단계적으로 비교하고 최종 모델 구조를 결정하는 것입니다.
 
 ## 핵심 요약
 
@@ -81,24 +80,6 @@ flowchart TD
     G3 --> H
     H --> I[Classification Head]
     I --> J[30 relation labels]
-```
-
-최종 조건:
-
-```yaml
-model_name_or_path: klue/roberta-large
-split_strategy: detailed_stratified
-input_style: typed_entity_marker_punct_question
-architecture: entity_start
-max_length: 256
-learning_rate: 3e-5
-num_train_epochs: 5
-per_device_train_batch_size: 8
-gradient_accumulation_steps: 8
-per_device_eval_batch_size: 16
-warmup_ratio: 0.1
-weight_decay: 0.01
-metric_for_best_model: micro_f1
 ```
 
 ## 실험 흐름
