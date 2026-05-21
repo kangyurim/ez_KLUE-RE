@@ -1,0 +1,30 @@
+﻿experiment_group: preprocess
+experiment_name: preprocess_prompt_s_sep_o
+input_style: s_sep_o
+output_dir: outputs/preprocess_prompt_s_sep_o
+note: subject SEP object SEP sentence prompt
+seed: 42
+model_name_or_path: klue/roberta-large
+split_strategy: detailed_stratified
+architecture: sequence_classification
+max_length: 256
+train_val_split_ratio: 0.1
+num_train_epochs: 5
+train_batch_size: 8
+eval_batch_size: 16
+learning_rate: 3e-5
+weight_decay: 0.01
+eval_strategy: epoch
+save_strategy: epoch
+metric_for_best_model: micro_f1
+fp16: true
+evaluate_test: true
+class_weighting: false
+focal_gamma:
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 8
+per_device_eval_batch_size: 16
+warmup_ratio: 0.1
+save_total_limit: 1
+load_best_model_at_end: true
+greater_is_better: true

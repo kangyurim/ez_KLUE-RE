@@ -1,0 +1,6 @@
+﻿review_item,finding,next_action,priority
+val-test gap,Check experiments with large val_micro_f1 - test_micro_f1 gap.,"Use more robust validation, k-fold, or ensemble if gap is large.",high
+model selection,"Choose final PLM by test_micro_f1, test_auprc, and elapsed time.",Use the best model as the base for loss and hyperparameter experiments.,high
+relation-level F1,Detailed relation scores are available.,"Run error_analysis.py for the final model, then inspect low-F1 relations.",medium
+entity type pair,Type-pair error summary is available.,"If a type pair is weak, consider type-pair candidate filtering.",medium
+high-confidence errors,High-confidence wrong examples are available.,"Consider focal loss, label smoothing, calibration, or hard-example augmentation.",medium

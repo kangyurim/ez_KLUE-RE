@@ -1,0 +1,28 @@
+seed: 42
+experiment_group: model
+experiment_name: model_roberta_large
+model_name_or_path: klue/roberta-large
+input_style: typed_entity_marker_punct_question
+split_strategy: detailed_stratified
+architecture: entity_start
+max_length: 256
+train_val_split_ratio: 0.1
+num_train_epochs: 5
+learning_rate: 3e-5
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 8
+per_device_eval_batch_size: 16
+warmup_ratio: 0.1
+weight_decay: 0.01
+eval_strategy: epoch
+save_strategy: epoch
+save_total_limit: 1
+load_best_model_at_end: true
+metric_for_best_model: micro_f1
+greater_is_better: true
+fp16: true
+evaluate_test: true
+class_weighting: false
+focal_gamma:
+output_dir: outputs/model_roberta_large_entity_start
+note: Reuse architecture roberta-large result when available

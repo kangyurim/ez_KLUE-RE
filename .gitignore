@@ -1,0 +1,86 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# =========================
+# Environment
+# =========================
+.env
+.venv/
+venv/
+env/
+
+# =========================
+# Data
+# =========================
+data/raw/
+data/final/
+data/cache/
+
+# =========================
+# Model / Training Outputs
+# (용량 큰 학습 산출물 제외)
+# =========================
+
+# checkpoints
+outputs/**/checkpoint-*/
+
+# model weights
+outputs/**/*.bin
+outputs/**/*.pt
+outputs/**/*.pth
+outputs/**/*.safetensors
+
+# trainer states
+outputs/**/optimizer.pt
+outputs/**/scheduler.pt
+outputs/**/training_args.bin
+outputs/**/trainer_state.json
+outputs/**/rng_state.pth
+outputs/**/scaler.pt
+
+# tokenizer
+outputs/**/tokenizer.json
+outputs/**/tokenizer_config.json
+
+# prediction cache
+outputs/**/*.npy
+outputs/**/*probabilities.csv
+outputs/**/*predictions.csv
+
+# 분석 중 생성되는 대용량 오답 파일
+outputs/**/wrong_predictions.csv
+
+# =========================
+# Keep outputs (실험 결과는 유지)
+# =========================
+
+!outputs/*.csv
+!outputs/**/*.csv
+
+# 분석 결과
+!outputs/**/confusion_matrix.png
+!outputs/**/confusion_matrix.csv
+!outputs/**/label_scores.csv
+!outputs/**/type_pair_scores.csv
+!outputs/**/label_type_pair_scores.csv
+
+# =========================
+# Editor / OS
+# =========================
+.vscode/
+.DS_Store
+Thumbs.db
